@@ -53,3 +53,49 @@ function removeElement(arr, el) {
   }
   return count;
 }
+
+// Write a function called stairs which accepts n number of stairs. Imagine that a person is standing at the bottom of the stairs and wants to reach the top and the person can climb either 1 stair or 2 stairs at a time. Your function should return the number of ways the person can reach the top by only climbing 1 or 2 stairs at a time.
+
+// stairs(1) // 1
+// stairs(2) // 2 (1,1 or 2)
+// stairs(3) // 3 (1,1,1 or 1,2 or 2,1)
+// stairs(5) // 8
+// stairs(10) // 89
+// stairs(12) // 233
+// stairs(44) // 1134903170
+// stairs(332) // 1.751455877444437e+69
+
+// BONUS
+
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+function stairs(n) {
+  //tabulation, building the table up to n
+  var stepsArr = [0, 1, 2];
+  for (var i = 3; i <= n; i++) {
+    //fib sequence
+    stepsArr[i] = stepsArr[i - 2] + stepsArr[i - 1];
+  }
+
+  return stepsArr[n];
+}
+
+//memoization top down
+//could still refactor
+
+function stairs(n) {
+  var result = {};
+  return str(n);
+
+  function str(n) {
+    if (n < 3) {
+      return n;
+    }
+    if (result[n]) {
+      return result[n];
+    }
+    var res = str(n - 1) + str(n - 2);
+    result[n] = res;
+    return res;
+  }
+}
