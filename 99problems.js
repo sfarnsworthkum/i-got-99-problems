@@ -33,3 +33,23 @@ function rotateArray(arr, n) {
   arr.unshift(...arr.splice(arr.length - num));
   return arr;
 }
+
+//removeElement
+// Write a function called removeElement which accepts an array and a value. The function should return a count of the number of elements in the array which are not equal to the value.
+// Examples:
+
+// removeElement([3,2,2,1], 2) // 2
+// removeElement([10,4,1,2,5,1,2,4,2,1,5,5], 5) // 9
+// removeElement([12,3,11,6,1,2,3,6,1], 11) // 8
+
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+function removeElement(arr, el) {
+  var count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== el) {
+      count++;
+    }
+  }
+  return count;
+}
