@@ -126,3 +126,65 @@ function moveZeroes(arr) {
   }
   return arr;
 }
+
+// Write a function called matchingDigits which accepts two positive integers. The function should find out if the two numbers have the same frequency of digits, if so return true, otherwise return false. You can assume all inputs will be positive integers.
+
+// matchingDigits(141, 411) // true
+// matchingDigits(34, 14) // false
+// matchingDigits(3589578, 5879385) // true
+// matchingDigits(22, 222) // false
+// matchingDigits(8675309, 9035768) // true
+// matchingDigits(8686867, 686868) // false
+
+// Time complexity : O(N + M), where N and M are the total number of digits in each input.
+function matchingDigits(int1, int2) {
+  var arr1 = int1.toString().split("");
+  var arr2 = int2.toString().split("");
+  var countObj = {};
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    countObj[arr1[i]] = (countObj[arr1[i]] || 0) + 1;
+  }
+  for (let i = 0; i < arr2.length; i++) {
+    if (!countObj[arr2[i]]) {
+      return false;
+    }
+    if (countObj[arr2[i]]) {
+      countObj[arr2[i]]--;
+      if (countObj[arr2[i]] < 0) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+//Delete occurences of an ele ment if it occurs more than n times
+//Given a list lst and a number N, create a new list that contains each number of lst at most N times without reordering. For example if N = 2, and the input is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
+function deleteNth(arr, x) {
+  var obj = {};
+  return arr.filter(function(number) {
+    obj[number] = obj[number] ? obj[number] + 1 : 1;
+    return obj[number] <= x;
+  });
+}
+
+//find the unique number
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+function findUniq(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1] && arr[i] !== arr[i + 2]) {
+      return arr[i];
+    }
+    if (arr[i] !== arr[i + 1] && arr[i] === arr[i + 2]) {
+      return arr[i + 1];
+    }
+    if (arr[i] === arr[i + 1] && arr[i] !== arr[i + 2]) {
+      return arr[i + 2];
+    }
+  }
+}
