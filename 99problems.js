@@ -99,3 +99,30 @@ function stairs(n) {
     return res;
   }
 }
+//movezeroes
+// Write a function called moreZeroes which accepts an array and moves all 0's to the end of it while maintaining the relative order of the non-zero elements. The function should return the array.
+
+// moveZeroes([0,1,0,3,12]) // [1,3,12,0,0]
+// moveZeroes([1,3,10,2]) // [1,3,10,2]
+// moveZeroes([4,1,2,0,0,1,2,1,0]) // [4,1,2,1,2,1,0,0,0]
+// moveZeroes([6,1,2,3,5,1,0]) // [6,1,2,3,5,1,0]
+// moveZeroes([0,6,1,2,3,5,1,0]) // [6,1,2,3,5,1,0,0]
+// moveZeroes([12,2,0,0,2,1]) // [12,2,2,1,0,0]
+
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+function moveZeroes(arr) {
+  var i = 0;
+  var j = 1;
+  while (j <= arr.length - 1) {
+    if (arr[i] === 0 && arr[j] !== 0) {
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    } else if (arr[i] === 0 && arr[j] === 0) {
+      j++;
+    } else if (arr[i] !== 0) {
+      i++;
+      j++;
+    }
+  }
+  return arr;
+}
