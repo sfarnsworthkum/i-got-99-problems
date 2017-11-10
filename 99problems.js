@@ -239,3 +239,76 @@ function isPangram(string) {
   console.log(alpha);
   return true;
 }
+
+//Snail
+//Write a function called snail which Given an n x n array, returns the array elements arranged from outermost elements to the middle element, traveling clockwise.
+function snail(arr) {
+  var endArr = [];
+  while (arr.length > 0) {
+    endArr = endArr.concat(arr.shift(arr[0]));
+    for (var i = 0; i < arr.length; i++) {
+      endArr.push(arr[i].pop());
+    }
+    if (arr.length === 0) {
+      return endArr;
+    }
+    endArr = endArr.concat(arr.pop().reverse());
+    for (var i = arr.length - 1; i >= 0; i--) {
+      endArr.push(arr[i].shift());
+    }
+  }
+  return endArr;
+}
+//allLongest
+//
+// Write a function called allLongest which accepts an array of strings and returns another array containing all of its longest strings.
+
+// allLongest(["a","bb","cc","dd"]) // ["bb","cc","dd"]
+// allLongest(['Elie', 'Matt', 'Tim'] // ["Elie", "Matt"]
+
+function allLongest(arr) {
+  var longest = 0;
+  var current = 0;
+  for (var i = 0; i < arr.length; i++) {
+    current = arr[i].length;
+    if (current >= longest) {
+      longest = current;
+    }
+  }
+  return arr.filter(el => el.length === longest);
+}
+// isSimilar
+
+// Write a function called isSimilar which accepts two arrays. This function should return true if one array can be created from another by swapping at most one pair of elements. This function should return false if these arrays can not be the same in one swap.
+
+// isSimilar([3,2,1],[1,2,3]) // true
+// isSimilar([1,2,3,4],[4,2,3,1]) // true
+// isSimilar([0,1,2,3,4],[3,1,2,0,4]) // true
+// isSimilar([1,2,3,4,5],[1,2,3,4,5]) // true
+// isSimilar([4,1,2,3], [1,2,3,4]) // false
+// isSimilar([1,2,3,4,5], [1,2,3,4,5,6]) // false
+// isSimilar([1,2,3,4,5,6], [1,2,3,4,5,7]) // false
+// isSimilar([3,2,1,5,6],[1,2,3,4,5]) // false
+
+// Constraints:
+
+// Time Complexity - O(n)
+function isSimilar(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  var counter = 0;
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) === -1) {
+      return false;
+    }
+    if (arr2.indexOf(arr1[i]) !== i) {
+      counter++;
+      if (counter > 2) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+//not O(N)...
