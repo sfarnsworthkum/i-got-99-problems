@@ -350,7 +350,20 @@ def Descending_Order(num):
 
 //back to JS
 
-//
+//real size of dimentional array
+
+function realSize(arrays) {
+  var sum = 0;
+  for (var i = 0; i < arrays.length; i++) {
+    if (typeof arrays[i] != "number") {
+      sum += realSize(arrays[i]);
+    } else {
+      sum += 1;
+    }
+  }
+  return sum;
+  
+}
     
 
 
