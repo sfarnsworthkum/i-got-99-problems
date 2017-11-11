@@ -492,6 +492,7 @@ function oneCharDifference(str1, str2) {
       }
     }
   }
+}
 
     
 
