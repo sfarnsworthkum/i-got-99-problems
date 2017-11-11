@@ -436,6 +436,11 @@ function stringify(list) {
   return arr.join(' -> ');  
 }
 
+//not as readable but slick 
+function stringify(list) {
+  return list === null ? "null" : `${list.data} -> ${stringify(list.next)}`;
+}
+
     
 
 
