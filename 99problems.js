@@ -364,6 +364,30 @@ function realSize(arrays) {
   return sum;
   
 }
+
+//longestFall
+//longestFall
+
+// Given an array of integers, determine the length of the longest consecutive decrease of integers.
+
+// Input: array of integers
+// Output: integer
+
+// Constraints:
+// Time Complexity: O(N)
+// Space Complexity: O(1)
+function longestFall(nums) {
+  let count = 1;
+  let maxCount = 0;
+  
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] < nums[i-1]) count++;
+    if (nums[i] >= nums[i-1]) count = 1;
+    maxCount = Math.max(count, maxCount);
+  }
+  return maxCount;
+}
+
     
 
 
