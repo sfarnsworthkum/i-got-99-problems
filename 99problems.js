@@ -462,6 +462,37 @@ function hammingDistance(str1, str2) {
   } 
 }
 
+//oneCharDifference
+
+
+//which checks whether there two strings differ by a single character.
+
+//The difference may consist of one character being added, removed, or replaced, in which case the function must return true. In all other cases it must return false. As with hammingDistance, this function should ignore case.
+function oneCharDifference(str1, str2) {
+  if (str1.length === str2.length) {
+    return hammingDistance(str1, str2) === 1;
+  } else {
+    if (str1.length > str2.length) {
+      var largerStr = str1;
+      var smStr = str2
+    } else {
+      largerStr = str2;
+      smStr = str1
+    } if(largerStr.length - smStr.length > 1) {
+      return false;
+    } else {
+      var count = 0;
+      for (var i = 0; i < smStr.length; i++) {
+        if (smStr[i].toLowerCase() !== largerStr[i + count].toLowerCase()) {
+          count++;
+          if (count === 2 || smStr[i].toLowerCase() !== largerStr[i + 1].toLowerCase()) {
+            return false;
+          }
+        } 
+      }
+    }
+  }
+
     
 
 
