@@ -565,6 +565,25 @@ function reverse(str){
 reverse('awesome') // 'emosewa'
 reverse('rithmschool') // 'loohcsmhtir'
 
+//collectOddValues
+//Write a recursive function called collectOddValues which accepts an array of numbers and returns a new array of only the odd values.
+function collectOddValues(arr){
+  if(arr.length === 1 && !arr[0] % 2 === 0) {
+    return arr;
+  } else if(arr.length === 1 && arr[0] % 2 === 0){
+    return [];
+  } else {
+    var recursiveArr = collectOddValues(arr.slice(1));
+    if(arr[0] % 2 !== 0){
+      recursiveArr.unshift(arr[0]);
+    }
+    return recursiveArr;
+  }
+}
+collectOddValues([1,2,3,4,5,6,7]) // [1,3,5,7]
+collectOddValues([-2,1,-11,3,9,16,17]) // [-1,-11,3,9,17]
+
+
 
 
     
