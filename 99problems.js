@@ -441,6 +441,27 @@ function stringify(list) {
   return list === null ? "null" : `${list.data} -> ${stringify(list.next)}`;
 }
 
+//hamming distance 
+//
+// This function takes in two strings of equal length, and calculates the distance between them. Here, "distance" is defined as the number of characters that differ at the same position. The function should ignore case.
+
+// If the inputs do not have the same length, the function should return "Input strings must have the same length."
+function hammingDistance(str1, str2) {
+  if(str1.length !== str2.length) {
+    return "Input strings must have the same length.";
+  } else {
+    var lowStr1 = str1.toLowerCase();
+    var lowStr2 = str2.toLowerCase();
+    var count = 0;
+    for (var i = 0; i < lowStr1.length; i++) {
+      if(lowStr1[i] !== lowStr2[i]) {
+        count++;
+      }  
+    }
+    return count;
+  } 
+}
+
     
 
 
