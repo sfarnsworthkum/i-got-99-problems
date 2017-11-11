@@ -424,6 +424,18 @@ function constructNote(message, letters) {
     return true;
 }
 
+//convert linked list to string 
+
+function stringify(list) {
+  var arr = [];
+  while(list) {
+    arr.push(list.data);
+    list = list.next;
+  }
+  arr.push('null');
+  return arr.join(' -> ');  
+}
+
     
 
 
