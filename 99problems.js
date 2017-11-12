@@ -583,6 +583,26 @@ function collectOddValues(arr){
 collectOddValues([1,2,3,4,5,6,7]) // [1,3,5,7]
 collectOddValues([-2,1,-11,3,9,16,17]) // [-1,-11,3,9,17]
 
+//find matching parenthesis
+
+//Based on the given index, return the matching parenthesis in the given string.
+
+String.prototype.findParenMatch = function(pos) {
+  var stack = [];
+  var obj = {};
+  for(var i = 0; i < this.length; i++){
+    if(this[i] === '(') {
+      stack.push(i);
+    }
+    if(this[i] === ')') {
+      var temp = stack.pop();
+      obj[i] = temp;
+      obj[temp] = i;
+    }
+  }
+   return obj[pos] === undefined ? -1 : obj[pos];
+};
+
 
 
 
