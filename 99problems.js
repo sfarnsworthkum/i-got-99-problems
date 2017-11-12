@@ -632,6 +632,12 @@ function toUnderscore(string) {
 dashatize(274) -> '2-7-4'
 dashatize(6815) -> '68-1-5'
 
+function dashatize(num) {
+  return String(num)
+    .replace(/([13579])/g, (m) => '-' + m + '-')
+    .replace(/--/g,'-')
+    .replace(/^-|-$/g,'')
+};
 
 
 
