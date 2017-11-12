@@ -639,6 +639,15 @@ function dashatize(num) {
     .replace(/^-|-$/g,'')
 };
 
+//alternative solution 
+
+function dashatize(num) {
+  return String(num)
+    .replace(/([13579])/g, "-$1-") //$1 is the first match 
+    .replace(/--+/g, "-")
+    .replace(/(^-|-$)/g, "")
+}
+
 
 
     
