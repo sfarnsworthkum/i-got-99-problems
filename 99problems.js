@@ -603,6 +603,27 @@ String.prototype.findParenMatch = function(pos) {
    return obj[pos] === undefined ? -1 : obj[pos];
 };
 
+//toUnderscore
+//Complete the function/method so that it takes CamelCase string and returns the string in snake_case notation. Lowercase characters can be numbers. If method gets number, it should return string.
+
+//Examples:
+
+//  returns test_controller
+toUnderscore('TestController');
+
+// returns movies_and_books
+toUnderscore('MoviesAndBooks');
+
+// returns app7_test
+toUnderscore('App7Test');
+
+// returns "1"
+toUnderscore(1);
+
+function toUnderscore(string) {
+  if (typeof string === 'number') return String(string);
+  return string.replace(/([A-Z])/g, (p1) => '_' + p1.toLowerCase()).slice(1)
+}
 
 
 
