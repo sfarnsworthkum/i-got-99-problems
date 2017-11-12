@@ -625,6 +625,14 @@ function toUnderscore(string) {
   return string.replace(/([A-Z])/g, (p1) => '_' + p1.toLowerCase()).slice(1)
 }
 
+//Dashitize
+//Given a number, return a string with dash'-'marks before and after each odd integer, but do not begin or end the string with a dash mark.
+
+//Ex:
+dashatize(274) -> '2-7-4'
+dashatize(6815) -> '68-1-5'
+
+
 
 
     
