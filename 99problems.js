@@ -654,6 +654,11 @@ function dashatize(num) {
 var words = ['i', 'am', 'learning', 'recursion'];
 capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 
+function capitalizeWords (arr) {
+  return recursiveHelperMap(arr, function(word) {
+    return word.toUpperCase();
+  }); 
+}
 
 
 
