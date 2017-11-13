@@ -673,6 +673,19 @@ function capitalizeWords (arr) {
   }); 
 }
 
+//capitalizeFirst 
+//Write a recursive function called capitalizeFirst. Given an array of strings, capitalize the first letter of each string in the array.
+
+capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+function capitalizeFirst (arr) {
+return recursiveHelperMap(arr, function(word) {
+    return word[0].toUpperCase() + word.slice(1);
+  }); 
+}
+
+
+
+
 
 
 
