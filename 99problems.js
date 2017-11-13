@@ -648,6 +648,14 @@ function dashatize(num) {
     .replace(/(^-|-$)/g, "")
 }
 
+//capitolizeWords
+//Write a recursive function called capitalizeWords. Given an array of words, return a new array containing each word capitalized.
+
+var words = ['i', 'am', 'learning', 'recursion'];
+capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
+
+
+
 
 
     
