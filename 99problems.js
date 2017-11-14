@@ -683,6 +683,45 @@ return recursiveHelperMap(arr, function(word) {
   }); 
 }
 
+//nestedEvenSum
+//Write a recursive function called nestedEvenSum. Return the sum of all even numbers in an object which may contain nested objects.
+var obj1 = {
+  outer: 2,
+  obj: {
+    inner: 2,
+    otherObj: {
+      superInner: 2,
+      notANumber: true,
+      alsoNotANumber: "yup"
+    }
+  }
+}
+
+var obj2 = {
+  a: 2,
+  b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+  c: {c: {c: 2}, cc: 'ball', ccc: 5},
+  d: 1,
+  e: {e: {e: 2}, ee: 'car'}
+};
+
+nestedEvenSum(obj1); // 6
+nestedEvenSum(obj2); // 10
+
+function nestedEvenSum (obj) {
+  var objArr = Object.values(obj);
+  if(objArr.length === 1 && objArr[0] % 2 === 0) {
+      return objArr[0];
+  } else if(objArr.length === 1 && objArr[0] % 2 !== 0) {
+      if(typeof objArr[0] === 'object'){
+          return nestedEvenSum(objArr[0]);
+      }
+       return 0;
+  }
+  var mid = Math.floor(objArr.length /2);
+  return nestedEvenSum(objArr.slice(0, mid)) + nestedEvenSum(objArr.slice(mid));
+}
+
 
 
 
