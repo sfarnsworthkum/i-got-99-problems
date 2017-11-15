@@ -722,6 +722,21 @@ function nestedEvenSum (obj) {
   return nestedEvenSum(objArr.slice(0, mid)) + nestedEvenSum(objArr.slice(mid));
 }
 
+//binarySearchTree
+//simple construction 
+
+function Node(value){
+  this.value = value;
+  this.left = null;
+  this.right = null;
+    
+}
+
+function BinarySearchTree(){
+  this.root = null;
+    
+}
+
 
 
 
