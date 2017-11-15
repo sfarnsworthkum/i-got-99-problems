@@ -737,6 +737,32 @@ function BinarySearchTree(){
     
 }
 
+//insertIteratively
+
+//This function should insert a node in a binary tree. It should return the BinarySearchTree and  should be solved using iteration.
+inarySearchTree.prototype.insertIteratively = function (value) {
+  var newNode = new Node(value);
+  if(!this.root) {
+    this.root = newNode;
+    return this;
+  }
+  var node = this.root;
+  while(node !== newNode) {
+    if(newNode.value < node.value) {
+      if(node.left === null ){
+        node.left = newNode;
+        return this;
+      }
+      node = node.left;
+    } else {
+      if(node.right === null) {
+        node.right = newNode;
+        return this;
+      }
+      node = node.right;
+    }
+  }
+};
 
 
 
