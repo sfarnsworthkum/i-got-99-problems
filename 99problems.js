@@ -809,6 +809,30 @@ BinarySearchTree.prototype.findIteratively = function(value){
   return undefined;
 };
 
+//findRecursively 
+
+BinarySearchTree.prototype.findRecursively = function(value, iNode){
+  if(iNode === undefined){
+    iNode = this.root;
+  }
+  if(iNode === null) {
+    return undefined;
+  }
+  if(iNode.value === value) {
+    return iNode;
+  }
+  if(value < iNode.value) {
+    iNode = iNode.left;
+    return this.findRecursively(value, iNode);
+  }
+  if(value > iNode.value) {
+    iNode = iNode.right;
+    return this.findRecursively(value, iNode);
+  }
+  
+  return undefined;
+};
+
 
 
 
