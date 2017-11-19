@@ -833,6 +833,16 @@ BinarySearchTree.prototype.findRecursively = function(value, iNode){
   return undefined;
 };
 
+//toArray
+
+//This function should convert a binary search tree into an array of nodes from smallest to largest. The tests for this method assume that insertIteratively has been implemented correctly.
+BinarySearchTree.prototype.toArray = function(node=this.root){
+  if(node === null) return [];
+  if(!node.left && !node.right) return [node.value];
+  return this.toArray(node.left).concat(node.value, this.toArray(node.right));
+};
+
+
 
 
 
