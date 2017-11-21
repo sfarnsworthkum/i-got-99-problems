@@ -848,6 +848,18 @@ function MaxBinaryHeap(val){
     this.values = [];
 }
 
+//Implement the `insert` function on the `MaxBinaryHeap.prototype`: This function should insert a node in a binary heap. Make sure to re-order the heap after insertion if necessary.
+MaxBinaryHeap.prototype.insert = function(val) {
+  this.values.push(val);
+  var nodeIndex = this.values.length -1;
+  var parentIndex = Math.floor((nodeIndex -1) /2);
+  while(this.values[parentIndex] < this.values[nodeIndex]) {
+    [this.values[nodeIndex], this.values[parentIndex]] = [this.values[parentIndex], this.values[nodeIndex]];
+    //to change index...
+    nodeIndex = parentIndex;
+    parentIndex = Math.floor((nodeIndex - 1) /2);
+  }
+};
 
 
 
