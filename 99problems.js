@@ -878,6 +878,15 @@ MaxBinaryHeap.prototype.extractMax = function() {
   }
 };
 
+//Given an array of numbers, implement a function called `maxHeapify` which converts an array of numbers into a max-heap. The tests will pass as long as each element in the array is less than its parent
+function maxHeapify(arr) {
+  var binaryHeap = new MaxBinaryHeap();
+  for(var i = 0; i < arr.length; i++){
+    binaryHeap.insert(arr[i]);
+  }
+  return binaryHeap;
+}
+
 
 
 
