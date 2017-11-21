@@ -842,6 +842,13 @@ BinarySearchTree.prototype.toArray = function(node=this.root){
   return this.toArray(node.left).concat(node.value, this.toArray(node.right));
 };
 
+//MaxBinaryHeap
+
+function MaxBinaryHeap(val){
+    this.values = [];
+}
+
+
 
 
 
