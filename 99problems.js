@@ -861,6 +861,23 @@ MaxBinaryHeap.prototype.insert = function(val) {
   }
 };
 
+//extractMax
+
+//Implement the `extractMax` function on the `MaxBinaryHeap.prototype`: This function should remove the root node in a binary heap. Make sure to re-order the heap after removal if necessary.
+MaxBinaryHeap.prototype.extractMax = function() {
+  var arr = this.values;
+  var endNode = arr.length - 1;
+  [arr[endNode], arr[0]] = [arr[0], arr[endNode]];
+  arr.pop();
+  var parent = 0;
+  var child = arr[1] > arr[2]? 1 : 2;
+  while(arr[parent] < arr[child]) {
+    [arr[parent], arr[child]] = [arr[child], arr[parent]];
+    child = parent;
+    parent = Math.floor((child -1)/ 2);
+  }
+};
+
 
 
 
