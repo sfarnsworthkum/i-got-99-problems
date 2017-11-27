@@ -887,6 +887,17 @@ function maxHeapify(arr) {
   return binaryHeap;
 }
 
+//HashTables 
+//Implement the following on the `HashTable.prototype`
+
+//set
+
+//This function should set a value in the hashTable based on a specified key. It should be able to handle collisions so if you set with the same key it should still be able to retrieve the correct value.
+
+//get
+
+//This function return a value in the hashTable based on a specified key. It should be able to handle collisions so if you get two different items with the same hashed key it should still be able to retrieve the correct value.
+
 
 
 
