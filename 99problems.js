@@ -897,7 +897,70 @@ function maxHeapify(arr) {
 //get
 
 //This function return a value in the hashTable based on a specified key. It should be able to handle collisions so if you get two different items with the same hashed key it should still be able to retrieve the correct value.
+function HashTable(size=53) {
+  this.keyMap = new Array(size);
+}
 
+HashTable.prototype.RANDOM_VAL = 18539;
+
+HashTable.prototype.__hash = function(key) {
+  var hashFunction = (numericKey, multiple, size) => {
+    return (numericKey * multiple) % size;
+  }
+
+  if (Number.isFinite(key)) {
+    return hashFunction(key);
+  }
+
+  if (typeof key === 'string' && !isNaN(Number(key))) {
+    return hashFunction(Number(key), this.RANDOM_VAL, this.keyMap.length);
+  }
+
+  var tempKey = key;
+  if (key === null) {
+    tempKey = "null";
+  }
+
+  if (key === undefined) {
+    tempKey = "undefined";
+  }
+
+  if (isNaN(key) || !isFinite(key)) {
+    tempKey = "NaN";
+  }
+
+  if (typeof tempKey === 'string') {
+    var numKey = 0;
+    for (var i = 0; i < tempKey.length && i < 5; i++) {
+      numKey += tempKey.charCodeAt(i);
+    }
+
+    return hashFunction(numKey, this.RANDOM_VAL, this.keyMap.length)
+  }
+}
+
+HashTable.prototype.set = function(key, value) {
+  var index = this.__hash(key);
+  var item = this.keyMap[index] || [];
+  item.push([key,value]);
+  
+  this.keyMap[index] = item;
+}
+HashTable.prototype.get = function(key) {
+  var index = this.__hash(key);
+  var arr = this.keyMap[index];
+  if(!arr) return;
+  if(arr.length === 1) {
+    return arr[1];
+  }
+  if(arr.length > 1) {
+    for(var i = 0; i < arr.length; i++){
+      if(arr[i][0] === key){
+        return arr[i][1];
+      }
+    }
+  }
+}
 
 
 
