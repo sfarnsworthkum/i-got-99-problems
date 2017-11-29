@@ -338,18 +338,6 @@ function maxSubarraySum(arr, num) {
   return total;
 }
 
-
-//----------------------Python break -----------------------
-
-//Decending order 
-
-def Descending_Order(num):
-    digits = [x for x in str(num)]
-    digits.sort(reverse = True)
-    return int(''.join(digits))
-
-//back to JS
-
 //real size of dimentional array
 
 function realSize(arrays) {
