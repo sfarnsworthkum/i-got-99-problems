@@ -728,6 +728,7 @@ function BinarySearchTree(){
 //insertIteratively
 
 //This function should insert a node in a binary tree. It should return the BinarySearchTree and  should be solved using iteration.
+//dont kill yourself through the process...you can make it! 
 inarySearchTree.prototype.insertIteratively = function (value) {
   var newNode = new Node(value);
   if(!this.root) {
@@ -797,7 +798,8 @@ BinarySearchTree.prototype.findIteratively = function(value){
   return undefined;
 };
 
-//findRecursively 
+//findRecursively
+//again don't die! 
 
 BinarySearchTree.prototype.findRecursively = function(value, iNode){
   if(iNode === undefined){
@@ -953,6 +955,7 @@ HashTable.prototype.get = function(key) {
 //stairs 
 
 //Write a function called stairs which accepts n number of stairs. Imagine that a person is standing at the bottom of the stairs and wants to reach the top and the person can climb either 1 stair or 2 stairs at a time. Your function should return the number of ways the person can reach the top by only climbing 1 or 2 stairs at a time.
+//no we're not kidding just do it, promise you'll get icecream after :) 
 function stairs(n){
   //tabulation
   var stepsArr = [0, 1, 2];
